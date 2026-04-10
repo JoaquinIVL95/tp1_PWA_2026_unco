@@ -1,1 +1,139 @@
-/* MediaForm styles */
+.modal {
+  width: 480px;
+  height: 620px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 24px;
+}
+
+.title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.closeBtn {
+  padding: 8px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-muted);
+}
+
+/* BODY */
+.formBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 24px;
+  flex: 1;
+}
+
+/* FIELD */
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.formField label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.helper {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.formField input,
+.formField select {
+  height: 38px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 12px;
+  outline: none;
+}
+
+/* SELECT */
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper select {
+  width: 100%;
+  appearance: none;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--fg-muted);
+}
+
+/* RADIO PILLS */
+.radioPills {
+  display: flex;
+  gap: 10px;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--primary-light);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+/* FOOTER */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+}
+
+/* BUTTONS */
+.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.saveBtn {
+  background: var(--primary);
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
