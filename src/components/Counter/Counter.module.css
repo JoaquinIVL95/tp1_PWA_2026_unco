@@ -1,1 +1,23 @@
 /* Counter styles */
+
+.badges{
+  display:flex;
+  gap: 10px;
+}
+
+.badge{
+  display:flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dot{
+  width:8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink:0;
+}

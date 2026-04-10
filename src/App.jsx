@@ -1,12 +1,7 @@
-import Titulo from "./components/Titulo/Titulo"
+  import Home from "./pages/Home/Home"
 
-function App() {
-  return(
-  <div>
-    <Titulo text="Gestor de Peliculas y Series" level={1} size="md" align="center"/>
-  </div>
-  )
-}
+  function App() {
+    return <Home />
+  }
 
-
-export default App
+  export default App
