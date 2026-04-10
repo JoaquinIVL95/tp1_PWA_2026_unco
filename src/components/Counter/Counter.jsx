@@ -14,11 +14,11 @@ function Counter({items}) {
   const generoPorVer = contarGenero(porVer)
   const generoVistas = contarGenero(vistas)
 
-  const peliculasPorVer = porVer.filter(i => i.tipo === "Película").length
-  const seriesPorVer = porVer.filter(i => i.tipo === "Serie").length
+  const peliculasPorVer = porVer.filter(i => i.tipo === "pelicula").length
+  const seriesPorVer = porVer.filter(i => i.tipo === "serie").length
 
-  const peliculasVistas = vistas.filter(i => i.tipo === "Película").length
-  const seriesVistas = vistas.filter(i => i.tipo ==="Serie").length
+  const peliculasVistas = vistas.filter(i => i.tipo === "pelicula").length
+  const seriesVistas = vistas.filter(i => i.tipo ==="serie").length
 
 
 
