@@ -1,1 +1,28 @@
-/* Home styles */
+.page {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hdrLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hdrSub {
+  font-size: 14px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+}
