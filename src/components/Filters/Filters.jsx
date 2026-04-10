@@ -1,5 +1,73 @@
-function Filters() {
-  return <div>Filters</div>
-}
+import styles from "./Filters.module.css";
 
-export default Filters
+const generos = [
+  "Todos",
+  "Acción",
+  "Drama",
+  "Comedia",
+  "Terror",
+  "Ciencia Ficción",
+  "Animación",
+  "Documental",
+  "Otro",
+];
+
+export default function Filters({
+  genero,
+  setGenero,
+  tipo,
+  setTipo,
+}) {
+  return (
+    <div className={styles.container}>
+      
+      {/* GENRE SELECT */}
+      <div className={styles.genreSelect}>
+        <select
+          value={genero}
+          onChange={(e) => setGenero(e.target.value)}
+          className={styles.select}
+        >
+          {generos.map((g) => (
+            <option key={g} value={g}>
+              {g}
+            </option>
+          ))}
+        </select>
+
+        <span className={styles.chevron}>▾</span>
+      </div>
+
+      {/* TYPE SEGMENTED */}
+      <div className={styles.segmented}>
+        <button
+          className={`${styles.segmentBtn} ${
+            tipo === "todos" ? styles.active : ""
+          }`}
+          onClick={() => setTipo("todos")}
+        >
+          Todos
+        </button>
+
+        <button
+          className={`${styles.segmentBtn} ${
+            tipo === "pelicula" ? styles.active : ""
+          }`}
+          onClick={() => setTipo("pelicula")}
+        >
+          Película
+        </button>
+
+        <button
+          className={`${styles.segmentBtn} ${
+            tipo === "serie" ? styles.active : ""
+          }`}
+          onClick={() => setTipo("serie")}
+        >
+          Serie
+        </button>
+      </div>
+
+    </div>
+  );
+}
