@@ -1,1 +1,68 @@
-/* Filters styles */
+.container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* GENRE SELECT */
+.genreSelect {
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  appearance: none;
+
+  font-size: 13px;
+  color: var(--fg);
+}
+
+.chevron {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  pointer-events: none;
+}
+
+/* SEGMENTED */
+.segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.segmentBtn {
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-muted);
+}
+
+.active {
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
