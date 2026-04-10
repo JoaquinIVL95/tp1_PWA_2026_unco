@@ -7,7 +7,7 @@ export const seedData = [
     anio: 2014,
     genero: "Ciencia Ficción",
     rating: 8.6,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: false,
   },
   {
@@ -17,7 +17,7 @@ export const seedData = [
     anio: 2019,
     genero: "Drama",
     rating: 8.5,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: false,
   },
   {
@@ -27,7 +27,7 @@ export const seedData = [
     anio: 2018,
     genero: "Terror",
     rating: 7.3,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: false,
   },
   {
@@ -37,7 +37,7 @@ export const seedData = [
     anio: 2014,
     genero: "Comedia",
     rating: 8.1,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: false,
   },
 
@@ -49,7 +49,7 @@ export const seedData = [
     anio: 2022,
     genero: "Ciencia Ficción",
     rating: 8.7,
-    tipo: "Serie",
+    tipo: "serie",
     visto: false,
   },
   {
@@ -59,7 +59,7 @@ export const seedData = [
     anio: 2022,
     genero: "Drama",
     rating: 8.6,
-    tipo: "Serie",
+    tipo: "serie",
     visto: false,
   },
   {
@@ -69,7 +69,7 @@ export const seedData = [
     anio: 2017,
     genero: "Ciencia Ficción",
     rating: 8.8,
-    tipo: "Serie",
+    tipo: "serie",
     visto: false,
   },
   {
@@ -79,7 +79,7 @@ export const seedData = [
     anio: 2019,
     genero: "Comedia",
     rating: 8.1,
-    tipo: "Serie",
+    tipo: "serie",
     visto: false,
   },
 
@@ -91,7 +91,7 @@ export const seedData = [
     anio: 2008,
     genero: "Drama",
     rating: 9.5,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: true,
   },
   {
@@ -101,7 +101,7 @@ export const seedData = [
     anio: 2022,
     genero: "Acción",
     rating: 7.8,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: true,
   },
   {
@@ -111,7 +111,7 @@ export const seedData = [
     anio: 2014,
     genero: "Drama",
     rating: 8.5,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: true,
   },
   {
@@ -121,7 +121,7 @@ export const seedData = [
     anio: 2017,
     genero: "Terror",
     rating: 7.7,
-    tipo: "Película",
+    tipo: "pelicula",
     visto: true,
   },
 
@@ -133,7 +133,7 @@ export const seedData = [
     anio: 2008,
     genero: "Drama",
     rating: 9.5,
-    tipo: "Serie",
+    tipo: "serie",
     visto: true,
   },
   {
@@ -143,7 +143,7 @@ export const seedData = [
     anio: 2019,
     genero: "Drama",
     rating: 9.4,
-    tipo: "Serie",
+    tipo: "serie",
     visto: true,
   },
   {
@@ -153,7 +153,7 @@ export const seedData = [
     anio: 2016,
     genero: "Comedia",
     rating: 8.7,
-    tipo: "Serie",
+    tipo: "serie",
     visto: true,
   },
   {
@@ -163,7 +163,7 @@ export const seedData = [
     anio: 2024,
     genero: "Acción",
     rating: 8.9,
-    tipo: "Serie",
+    tipo: "serie",
     visto: true,
   },
 ]
