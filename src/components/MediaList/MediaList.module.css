@@ -1,1 +1,15 @@
-/* MediaList styles */
+.display{
+    display: flex;
+    flex-direction: horizontal;
+    align-items: center;
+    gap: 12px;
+    width: 100%
+}
+
+.porVer{
+    background-color: red;
+}
+
+.vistas{
+    background-color: green
+}
