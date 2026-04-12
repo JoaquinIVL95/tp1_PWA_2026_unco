@@ -1,1 +1,115 @@
-/* MediaCard styles */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.row1 {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--fg);
+}
+
+.rowMuted {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fg-muted);
+}
+
+.rating {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg)
+}
+
+.badgePelicula {
+    background-color: #FFFBEB;
+    color: #F6A823;
+}
+
+.badgeSerie {
+    background-color: #EDE9FE;
+    color: #8146DF;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.vista button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: #ECFDF5;
+    border: 1px solid #40C89A;
+    border-radius: 6px;
+    padding: 5px 12px;
+    color: #40C89A;
+
+    cursor: pointer;
+}
+
+.porVer button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: var(--surface);
+    border: 1px solid #7972EB;
+    border-radius: 6px;
+    padding: 5px 12px;
+    color: #7972EB;
+
+    cursor: pointer;
+}
+
+.editar{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 2px solid rgb(0, 179, 0);
+    cursor: pointer;
+}
+
+.eliminar {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.10);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button {
+  transition: all 0.2s ease;
+}
