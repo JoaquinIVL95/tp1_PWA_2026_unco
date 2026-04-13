@@ -9,48 +9,7 @@ import SortControls from '../../components/SortControls/SortControls'
 import MediaForm from '../../components/MediaForm/MediaForm'
 import MediaCard from '../../components/MediaCard/MediaCard'
 import MediaList from '../../components/MediaList/MediaList'
-const peliculas =  [
-    {
-      id: 1,
-      titulo: "Interstellar",
-      director: "Christopher Nolan",
-      anio: 2014,
-      genero: "Ciencia Ficción",
-      rating: 8.6,
-      tipo: "pelicula",
-      visto: false,
-    },
-    {
-      id: 2,
-      titulo: "Parasite",
-      director: "Bong Joon-ho",
-      anio: 2019,
-      genero: "Drama",
-      rating: 8.5,
-      tipo: "pelicula",
-      visto: false,
-    },
-    {
-      id: 9,
-      titulo: "Breaking Bad",
-      director: "Vince Gilligan",
-      anio: 2008,
-      genero: "Drama",
-      rating: 9.5,
-      tipo: "pelicula",
-      visto: true,
-    },
-    {
-      id: 10,
-      titulo: "Everything Everywhere All at Once",
-      director: "Daniel Kwan",
-      anio: 2022,
-      genero: "Acción",
-      rating: 7.8,
-      tipo: "pelicula",
-      visto: true,
-    },
-  ];
+
 
 export default function Testing() {
   const [items] = useState(seedData)
@@ -58,6 +17,9 @@ export default function Testing() {
   const [genero, setGenero] = useState('Todos')
   const [tipo, setTipo] = useState('todos')
   const [mostrarForm, setMostrarForm] = useState(false)
+  console.log(seedData);
+  console.log(items);
+  console.log(items[1]);
 
   const section = {
     padding: '24px 40px',
@@ -137,14 +99,14 @@ export default function Testing() {
       <div style={section}>
         <span style={label}>MediaCard</span>
         <div style={{ maxWidth: '400px' }}>
-          <MediaCard item={seedData[0]} />
+                    <MediaCard item={seedData[0]} />
         </div>
       </div>
 
       {/* MEDIA LIST */}
       <div style={section}>
         <span style={label}>MediaList</span>
-        <MediaList peliculas={peliculas} />
+        <MediaList item={seedData} />
       </div>
 
     </div>

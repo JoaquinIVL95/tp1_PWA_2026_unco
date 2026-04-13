@@ -1,10 +1,10 @@
 import styles from "./MediaList.module.css";
 import MediaCard from "../MediaCard/MediaCard";
 
-function MediaList({peliculas}) {
+function MediaList({item}) {
 
-  const noVistas = peliculas.filter(p => !p.visto);
-  const vistas = peliculas.filter(p => p.visto);
+  const noVistas = item.filter(p => !p.visto);
+  const vistas = item.filter(p => p.visto);
 
   return (
     <div className={styles.display}>

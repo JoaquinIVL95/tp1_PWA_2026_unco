@@ -29,6 +29,8 @@
     font-size:80%;
     font-weight: bold;
     color: var(--fg-muted);
+    display: flex;
+    flex-direction: row;
 
 }
 
