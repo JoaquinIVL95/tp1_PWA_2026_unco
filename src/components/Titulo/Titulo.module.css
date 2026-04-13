@@ -1,1 +1,20 @@
 /* Titulo styles */
+
+.xl {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.md {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sm {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.left   { text-align: left; }
+.center { text-align: center; }
+.right  { text-align: right; }
