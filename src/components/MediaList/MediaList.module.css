@@ -1,1 +1,45 @@
-/* MediaList styles */
+.display{
+  display: flex;
+  gap: 24px; /* más aire entre columnas */
+  width: 100%;
+  align-items: flex-start; /* 👈 importante: arriba, no centrado */
+  padding: 16px;
+}
+
+.porVer,
+.vistas {
+  flex: 1; 
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.datosPorVer{
+  border-left: 6px solid orange;
+}
+
+.datosVista{
+    border-left: 6px solid greenyellow;
+}
+
+.items
+{
+    font-size:80%;
+    font-weight: bold;
+    color: var(--fg-muted);
+    display: flex;
+    flex-direction: row;
+
+}
+
+.emptyPorVer, .emptyVistas{
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    gap: 6px;
+    display: flex;
+    justify-content: center;
+}

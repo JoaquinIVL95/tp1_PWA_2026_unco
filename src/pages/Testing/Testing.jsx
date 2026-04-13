@@ -10,12 +10,16 @@ import MediaForm from '../../components/MediaForm/MediaForm'
 import MediaCard from '../../components/MediaCard/MediaCard'
 import MediaList from '../../components/MediaList/MediaList'
 
+
 export default function Testing() {
   const [items] = useState(seedData)
   const [busqueda, setBusqueda] = useState('')
   const [genero, setGenero] = useState('Todos')
   const [tipo, setTipo] = useState('todos')
   const [mostrarForm, setMostrarForm] = useState(false)
+  console.log(seedData);
+  console.log(items);
+  console.log(items[1]);
 
   const section = {
     padding: '24px 40px',
@@ -95,14 +99,14 @@ export default function Testing() {
       <div style={section}>
         <span style={label}>MediaCard</span>
         <div style={{ maxWidth: '400px' }}>
-          <MediaCard item={seedData[0]} />
+                    <MediaCard item={seedData[0]} />
         </div>
       </div>
 
       {/* MEDIA LIST */}
       <div style={section}>
         <span style={label}>MediaList</span>
-        <MediaList items={items} />
+        <MediaList item={seedData} />
       </div>
 
     </div>
