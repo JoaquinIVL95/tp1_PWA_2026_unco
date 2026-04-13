@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./SortControls.module.css";
 
-function SortControl({ items, onSort }) {
+function SortControls({ items, onSort }) {
   const [sortOption, setSortOption] = useState("");
 
   const handleSort = (value) => {
@@ -52,4 +52,4 @@ function SortControl({ items, onSort }) {
   );
 }
 
-export default SortControl;
+export default SortControls;

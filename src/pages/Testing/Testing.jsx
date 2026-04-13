@@ -74,9 +74,9 @@ export default function Testing() {
       <div style={section}>
         <span style={label}>SortControls</span>
         <SortControls
-  items={peliculas}
-  onSort={(sorted) => setPeliculas(sorted)}
-/>
+        items={peliculas}
+        onSort={(sorted) => setPeliculas(sorted)}
+        />
       </div>
 
       {/* MEDIA FORM */}
