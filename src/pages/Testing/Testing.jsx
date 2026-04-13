@@ -17,9 +17,7 @@ export default function Testing() {
   const [genero, setGenero] = useState('Todos')
   const [tipo, setTipo] = useState('todos')
   const [mostrarForm, setMostrarForm] = useState(false)
-  console.log(seedData);
-  console.log(items);
-  console.log(items[1]);
+  const [peliculas, setPeliculas] = useState(seedData);
 
   const section = {
     padding: '24px 40px',
@@ -75,7 +73,10 @@ export default function Testing() {
       {/* SORT CONTROLS */}
       <div style={section}>
         <span style={label}>SortControls</span>
-        <SortControls />
+        <SortControls
+  items={peliculas}
+  onSort={(sorted) => setPeliculas(sorted)}
+/>
       </div>
 
       {/* MEDIA FORM */}
