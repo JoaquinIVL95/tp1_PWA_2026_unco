@@ -11,6 +11,7 @@ const initialState = {
   tipo: "pelicula",
 };
 
+
 export default function MediaForm({ onClose, onSave, initialData }) {
   const [form, setForm] = useState(initialData || initialState);
 
@@ -28,7 +29,7 @@ export default function MediaForm({ onClose, onSave, initialData }) {
     onSave(form);
   };
 
-  return (
+  return (  <div className={styles.overlay}>
     <div className={styles.modal}>
       {/* HEADER */}
       <div className={styles.modalHeader}>
@@ -153,6 +154,6 @@ export default function MediaForm({ onClose, onSave, initialData }) {
           </button>
         </div>
       </form>
-    </div>
+    </div> </div>
   );
 }

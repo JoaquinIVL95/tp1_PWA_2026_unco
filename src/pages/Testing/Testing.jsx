@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { seedData } from '../../data/seedData'
 
 import Titulo from '../../components/Titulo/Titulo'
@@ -7,12 +7,35 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import Filters from '../../components/Filters/Filters'
 import SortControls from '../../components/SortControls/SortControls'
 import MediaList from '../../components/MediaList/MediaList'
+import MediaForm from '../../components/MediaForm/MediaForm' 
 
 export default function Testing() {
-  const [items, setItems] = useState(seedData)
+  const [items, setItems] = useState(() => {
+    const data = localStorage.getItem("media");
+    return data ? JSON.parse(data) : [];
+  });
   const [busqueda, setBusqueda] = useState('')
   const [genero, setGenero] = useState('Todos')
   const [tipo, setTipo] = useState('todos')
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const handleOpenForm = () => {
+  setIsFormOpen(true);
+  };
+  const handleCloseForm = () => {
+  setIsFormOpen(false);
+  };
+const handleSave = (nuevoItem) => {
+  const itemConId = {
+    ...nuevoItem,
+    id: Date.now(),
+  };
+  setItems([itemConId, ...items]);
+  setIsFormOpen(false);
+};
+
+  useEffect(() => {
+  localStorage.setItem("media", JSON.stringify(items));
+  }, [items]);
 
   return (
     <div style={{ fontFamily: 'Inter, sans-serif', background: '#f1f5f9', minHeight: '100vh' }}>
@@ -46,8 +69,15 @@ export default function Testing() {
       }}>
         <SearchBar value={busqueda} onChange={setBusqueda} />
         <Filters genero={genero} setGenero={setGenero} tipo={tipo} setTipo={setTipo} />
-        <SortControls items={items} onSort={setItems} />
+        <SortControls items={items} onSort={setItems} onAdd={handleOpenForm}/>
       </div>
+      {/* Formulario Modal */}
+        {isFormOpen && (
+        <MediaForm
+          onClose={handleCloseForm}
+          onSave={handleSave}
+        />
+        )}
 
       {/* CONTENT */}
       <div style={{ padding: '28px 40px' }}>
