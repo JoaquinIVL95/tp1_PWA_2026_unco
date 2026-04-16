@@ -20,7 +20,10 @@ export default function Testing() {
   const [genero, setGenero] = useState("Todos");
   const [tipo, setTipo] = useState("todos");
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const handleOpenForm = () => {
+    setSelectedItem(null);
     setIsFormOpen(true);
   };
   const handleCloseForm = () => {
@@ -65,14 +68,31 @@ export default function Testing() {
 
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
-  const handleSave = (nuevoItem) => {
+const handleSave = (nuevoItem) => {
+  if (nuevoItem.id) {
+    // edita si encuentra el id
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === nuevoItem.id ? nuevoItem : item
+      )
+    );
+  } else {
+    // sino existe el id crea uno nuevo
     const itemConId = {
       ...nuevoItem,
       id: Date.now(),
     };
-    setItems([itemConId, ...items]);
-    setIsFormOpen(false);
-  };
+
+    setItems((prev) => [itemConId, ...prev]);
+  }
+
+  setIsFormOpen(false);
+};
+  const handleEdit = (id) => {
+    const item = items.find((i) => i.id === id);
+    setSelectedItem(item);
+    setIsFormOpen(true);
+  }
 
   useEffect(() => {
     localStorage.setItem("media", JSON.stringify(items));
@@ -135,7 +155,7 @@ export default function Testing() {
       </div>
       {/* Formulario Modal */}
       {isFormOpen && (
-        <MediaForm onClose={handleCloseForm} onSave={handleSave} />
+        <MediaForm onClose={handleCloseForm} onSave={handleSave} initialData={selectedItem}/>
       )}
 
       {/* CONTENT */}
@@ -144,6 +164,7 @@ export default function Testing() {
           item={sortedItems}
           onToggleVisto={toggleVisto}
           onDelete={handleDelete}
+          onEdit={handleEdit}
         />
       </div>
     </div>

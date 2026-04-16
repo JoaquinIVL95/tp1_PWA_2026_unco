@@ -1,7 +1,7 @@
 import styles from "./MediaList.module.css";
 import MediaCard from "../MediaCard/MediaCard";
 
-function MediaList({ item, onToggleVisto, onDelete }) {
+function MediaList({ item, onToggleVisto, onDelete, onEdit }) {
   const noVistas = item.filter((p) => !p.visto);
   const vistas = item.filter((p) => p.visto);
   const contarGeneros = (array) => {
@@ -43,6 +43,7 @@ function MediaList({ item, onToggleVisto, onDelete }) {
               visto={p.visto}
               onToggleVisto={onToggleVisto}
               onDelete={onDelete}
+              onEdit={onEdit}
             />
           ))
         )}
@@ -76,6 +77,7 @@ function MediaList({ item, onToggleVisto, onDelete }) {
               visto={p.visto}
               onToggleVisto={onToggleVisto}
               onDelete={onDelete}
+              onEdit={onEdit}
             />
           ))
         )}
