@@ -32,6 +32,13 @@ export default function Testing() {
       ),
     );
   };
+  const handleDelete = (id) => {
+  const confirmacion = window.confirm("¿Seguro que querés eliminar este item?");
+  
+  if (!confirmacion) return;
+
+  setItems(prev => prev.filter(item => item.id !== id));
+};
   const handleSave = (nuevoItem) => {
     const itemConId = {
       ...nuevoItem,
@@ -107,7 +114,7 @@ export default function Testing() {
 
       {/* CONTENT */}
       <div style={{ padding: "28px 40px" }}>
-        <MediaList item={items} onToggleVisto={toggleVisto} />
+        <MediaList item={items} onToggleVisto={toggleVisto} onDelete={handleDelete}/>
       </div>
     </div>
   );
