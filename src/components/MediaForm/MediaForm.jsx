@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./MediaForm.module.css";
 import { X, ChevronDown } from "lucide-react";
 
@@ -14,6 +14,10 @@ const initialState = {
 
 export default function MediaForm({ onClose, onSave, initialData }) {
   const [form, setForm] = useState(initialData || initialState);
+
+useEffect(() => {
+    setForm(initialData || initialState);
+  }, [initialData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

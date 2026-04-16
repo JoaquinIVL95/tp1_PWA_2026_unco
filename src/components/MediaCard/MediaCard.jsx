@@ -11,6 +11,7 @@ function MediaCard({
   visto = true,
   onToggleVisto,
   onDelete,
+  onEdit
 }) {
   return (
     <div className={styles.card}>
@@ -47,7 +48,11 @@ function MediaCard({
         )}
         <div className={styles.spacer}></div>
 
-        <button type="button" className={styles.editar}>
+        <button 
+          type="button" 
+          className={styles.editar}
+          onClick={() => onEdit(id)}
+        >
           ✏️
         </button>
         <button
