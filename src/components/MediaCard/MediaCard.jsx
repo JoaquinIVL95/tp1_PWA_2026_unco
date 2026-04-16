@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styles from "./MediaCard.module.css"
 
 function MediaCard({
+  id,
   titulo = "Titulo",
   director = "Director",
   anio ="Año",
@@ -9,9 +9,9 @@ function MediaCard({
   rating = "Rating",
   tipo = "pelicula",
   visto =true,
+  onToggleVisto,
 
 }) {
-  const [estadoVisto, setEstadoVisto] = useState(visto);
   return <div className={styles.card}>
     <div className={styles.row1}>
       <span>{titulo}</span>
@@ -23,13 +23,13 @@ function MediaCard({
     <div className={styles.rowMuted}> {anio} - {genero} </div>
     <div className={styles.rating}> ⭐ {rating} </div>
     <div className={styles.actions}>
-    {estadoVisto? 
+    {visto? 
     (<div className={styles.vista}>
-      <button type="button" onClick={() => setEstadoVisto(false)}>Mover a por ver</button>
+      <button type="button" onClick={() => onToggleVisto(id)}>Mover a por ver</button>
       </div>
     ):
     (<div className={styles.porVer}>
-      <button type="button" onClick={() => setEstadoVisto(true)}>Marcar como vista</button>
+      <button type="button" onClick={() => onToggleVisto(id)}>Marcar como vista</button>
     </div>
 
     )}
