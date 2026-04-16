@@ -12,7 +12,9 @@ import MediaForm from "../../components/MediaForm/MediaForm";
 export default function Testing() {
   const [items, setItems] = useState(() => {
     const data = localStorage.getItem("media");
-    return data ? JSON.parse(data) : [];
+    const parsed = data ? JSON.parse(data) : null;
+
+    return parsed && parsed.length > 0 ? parsed : seedData;
   });
   const [busqueda, setBusqueda] = useState("");
   const [genero, setGenero] = useState("Todos");
@@ -24,7 +26,29 @@ export default function Testing() {
   const handleCloseForm = () => {
     setIsFormOpen(false);
   };
+  //feature para ordenamiento
+  const [sortConfig, setSortConfig] = useState({
+    criterio: null,
+    orden: null,
+  });
 
+  const handleSort = (criterio, orden) => {
+    setSortConfig({ criterio, orden });
+  };
+
+  const sortedItems = [...items].sort((a, b) => {
+    if (!sortConfig.criterio) return 0;
+
+    const { criterio, orden } = sortConfig;
+
+    const valA = Number(a[criterio]);
+    const valB = Number(b[criterio]);
+
+    return orden === "asc" ? valA - valB : valB - valA;
+  });
+
+  
+  //feature para ver si la serie/pelicula está vista
   const toggleVisto = (id) => {
     setItems((prev) =>
       prev.map((item) =>
@@ -33,12 +57,14 @@ export default function Testing() {
     );
   };
   const handleDelete = (id) => {
-  const confirmacion = window.confirm("¿Seguro que querés eliminar este item?");
-  
-  if (!confirmacion) return;
+    const confirmacion = window.confirm(
+      "¿Seguro que querés eliminar este item?",
+    );
 
-  setItems(prev => prev.filter(item => item.id !== id));
-};
+    if (!confirmacion) return;
+
+    setItems((prev) => prev.filter((item) => item.id !== id));
+  };
   const handleSave = (nuevoItem) => {
     const itemConId = {
       ...nuevoItem,
@@ -105,7 +131,7 @@ export default function Testing() {
           tipo={tipo}
           setTipo={setTipo}
         />
-        <SortControls items={items} onSort={setItems} onAdd={handleOpenForm} />
+        <SortControls onSort={handleSort} onAdd={handleOpenForm} />
       </div>
       {/* Formulario Modal */}
       {isFormOpen && (
@@ -114,7 +140,11 @@ export default function Testing() {
 
       {/* CONTENT */}
       <div style={{ padding: "28px 40px" }}>
-        <MediaList item={items} onToggleVisto={toggleVisto} onDelete={handleDelete}/>
+        <MediaList
+          item={sortedItems}
+          onToggleVisto={toggleVisto}
+          onDelete={handleDelete}
+        />
       </div>
     </div>
   );

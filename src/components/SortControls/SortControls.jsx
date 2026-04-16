@@ -1,33 +1,25 @@
 import { useState } from "react";
 import styles from "./SortControls.module.css";
 
-function SortControls({ items, onSort, onAdd }) {
+function SortControls({ onSort, onAdd }) {
   const [sortOption, setSortOption] = useState("");
 
   const handleSort = (value) => {
     setSortOption(value);
-    console.log("ANTES:", items);
 
-    let sorted = [...items];
-
-    switch (value) {
-      case "year-asc":
-        sorted.sort((a, b) => a.anio - b.anio);
-        break;
-      case "year-desc":
-        sorted.sort((a, b) => b.anio - a.anio);
-        break;
-      case "rating-asc":
-        sorted.sort((a, b) => a.rating - b.rating);
-        break;
-      case "rating-desc":
-        sorted.sort((a, b) => b.rating - a.rating);
-        break;
-      default:
-        break;
+    if (!value) {
+      onSort(null, null);
+      return;
     }
-    console.log("DESPUÉS:", sorted);
-    onSort(sorted);
+
+    const [criterio, orden] = value.split("-");
+
+    const map = {
+      year: "anio",
+      rating: "rating",
+    };
+
+    onSort(map[criterio], orden);
   };
 
   return (
@@ -44,10 +36,10 @@ function SortControls({ items, onSort, onAdd }) {
         <option value="rating-desc">Rating ↓</option>
       </select>
 
-    <button className={styles.addButton} onClick={onAdd}>
-      <span className={styles.plus}>+</span>
-      Agregar película / serie
-    </button>
+      <button className={styles.addButton} onClick={onAdd}>
+        <span className={styles.plus}>+</span>
+        Agregar película / serie
+      </button>
     </div>
   );
 }
