@@ -38,7 +38,7 @@ function SortControls({ onSort, onAdd }) {
 
       <button className={styles.addButton} onClick={onAdd}>
         <span className={styles.plus}>+</span>
-        Agregar película / serie
+        Agregar
       </button>
     </div>
   );
