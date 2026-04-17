@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { seedData } from "../../data/seedData";
+import styles from "./Testing.module.css";
 
 import Titulo from "../../components/Titulo/Titulo";
 import Counter from "../../components/Counter/Counter";
@@ -8,6 +9,7 @@ import Filters from "../../components/Filters/Filters";
 import SortControls from "../../components/SortControls/SortControls";
 import MediaList from "../../components/MediaList/MediaList";
 import MediaForm from "../../components/MediaForm/MediaForm";
+import ConfirmDialog from "../../components/ConfirmDialog/ConfirmDialog.jsx"
 
 export default function Testing() {
   const [items, setItems] = useState(() => {
@@ -21,6 +23,7 @@ export default function Testing() {
   const [tipo, setTipo] = useState("todos");
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [itemEliminar, setItemEliminar] = useState(null)
 
   const handleOpenForm = () => {
     setSelectedItem(null);
@@ -60,13 +63,7 @@ export default function Testing() {
     );
   };
   const handleDelete = (id) => {
-    const confirmacion = window.confirm(
-      "¿Seguro que querés eliminar este item?",
-    );
-
-    if (!confirmacion) return;
-
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    setItemEliminar(id)
   };
 const handleSave = (nuevoItem) => {
   if (nuevoItem.id) {
@@ -88,11 +85,16 @@ const handleSave = (nuevoItem) => {
 
   setIsFormOpen(false);
 };
+  const handleConfirmDelete= () =>{ setItems(items.filter(i => i.id !== itemEliminar))
+  setItemEliminar(null)
+  }
   const handleEdit = (id) => {
     const item = items.find((i) => i.id === id);
     setSelectedItem(item);
     setIsFormOpen(true);
   }
+
+  const hayFiltros = busqueda !== "" || genero !== "Todos" || tipo !== "todos";
 
   const itemsFiltrados =sortedItems.filter(f => (f.titulo.toLowerCase().includes(busqueda.toLowerCase()) 
     || f.director.toLowerCase().includes(busqueda.toLowerCase()))
@@ -104,34 +106,12 @@ const handleSave = (nuevoItem) => {
   }, [items]);
 
   return (
-    <div
-      style={{
-        fontFamily: "Inter, sans-serif",
-        background: "#f1f5f9",
-        minHeight: "100vh",
-      }}
-    >
+    <div className={styles.page}>
       {/* HEADER */}
-      <header
-        style={{
-          background: "#ffffff",
-          borderBottom: "1px solid #e2e8f0",
-          padding: "20px 40px",
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: "4px",
-          }}
-        >
+      <header className={styles.header}>
+        <div className={styles.headerLeft}>
           <Titulo text="🎬 Gestor de Películas y Series" level={1} />
-          <span style={{ fontSize: "14px", color: "#64748b" }}>
+          <span className={styles.subtitle}>
             Tu lista personal de películas y series favoritas
           </span>
         </div>
@@ -139,16 +119,7 @@ const handleSave = (nuevoItem) => {
       </header>
 
       {/* CONTROLS BAR */}
-      <div
-        style={{
-          background: "#ffffff",
-          borderBottom: "1px solid #e2e8f0",
-          padding: "12px 40px",
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-        }}
-      >
+      <div className={styles.controlsBar}>
         <SearchBar value={busqueda} onChange={setBusqueda} />
         <Filters
           genero={genero}
@@ -156,22 +127,37 @@ const handleSave = (nuevoItem) => {
           tipo={tipo}
           setTipo={setTipo}
           items={items}
+          hayFiltros={hayFiltros}
+          onLimpiar={() => {
+            setBusqueda("");
+            setGenero("Todos");
+            setTipo("todos");
+          }}
         />
         <SortControls onSort={handleSort} onAdd={handleOpenForm} />
       </div>
+
       {/* Formulario Modal */}
       {isFormOpen && (
         <MediaForm onClose={handleCloseForm} onSave={handleSave} initialData={selectedItem}/>
       )}
+      {/* Confirmar eliminación */}
+      {itemEliminar && (
+        <ConfirmDialog
+          titulo={items.find(i => i.id === itemEliminar)?.titulo}
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setItemEliminar(null)}
+        />
+      )}
 
       {/* CONTENT */}
-      <div style={{ padding: "28px 40px" }}>
+      <div className={styles.content}>
         <MediaList
           item={itemsFiltrados}
           onToggleVisto={toggleVisto}
           onDelete={handleDelete}
           onEdit={handleEdit}
-          
+          hayFiltros={hayFiltros}
         />
       </div>
     </div>

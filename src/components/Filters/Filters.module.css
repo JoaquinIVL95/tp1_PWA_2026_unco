@@ -14,7 +14,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 9px 12px;
+  padding: 8px 12px;
 
   position: relative;
 }
@@ -42,7 +42,7 @@
 .segmented {
   display: flex;
   gap: 2px;
-  padding: 3px;
+  padding: 4px;
 
   background: var(--bg);
   border: 1px solid var(--border);
@@ -65,4 +65,14 @@
   background: var(--primary);
   color: #ffffff;
   font-weight: 600;
+}
+
+.clearBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  cursor: pointer;
 }
