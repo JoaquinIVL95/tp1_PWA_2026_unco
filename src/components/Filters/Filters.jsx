@@ -12,12 +12,17 @@ const generos = [
   "Otro",
 ];
 
+
+
 export default function Filters({
   genero,
   setGenero,
   tipo,
   setTipo,
+  items,
 }) {
+const generosDisponibles = ["Todos", ...new Set(items.map(i => i.genero))]
+
   return (
     <div className={styles.container}>
       
@@ -28,7 +33,7 @@ export default function Filters({
           onChange={(e) => setGenero(e.target.value)}
           className={styles.select}
         >
-          {generos.map((g) => (
+          {generosDisponibles.map((g) => (
             <option key={g} value={g}>
               {g}
             </option>

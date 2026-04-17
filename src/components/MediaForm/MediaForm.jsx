@@ -97,6 +97,10 @@ useEffect(() => {
               <option>Acción</option>
               <option>Comedia</option>
               <option>Terror</option>
+              <option>Ciencia Ficción</option>
+              <option>Animación</option>
+              <option>Documental</option>
+              <option>Otro</option>
             </select>
             <ChevronDown size={16} className={styles.icon} />
           </div>

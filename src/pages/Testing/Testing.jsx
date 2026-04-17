@@ -94,6 +94,11 @@ const handleSave = (nuevoItem) => {
     setIsFormOpen(true);
   }
 
+  const itemsFiltrados =sortedItems.filter(f => (f.titulo.toLowerCase().includes(busqueda.toLowerCase()) 
+    || f.director.toLowerCase().includes(busqueda.toLowerCase()))
+    && (genero === "Todos" ? true : f.genero === genero)
+    && (tipo === "todos" ? true : f.tipo === tipo))
+
   useEffect(() => {
     localStorage.setItem("media", JSON.stringify(items));
   }, [items]);
@@ -150,6 +155,7 @@ const handleSave = (nuevoItem) => {
           setGenero={setGenero}
           tipo={tipo}
           setTipo={setTipo}
+          items={items}
         />
         <SortControls onSort={handleSort} onAdd={handleOpenForm} />
       </div>
@@ -161,10 +167,11 @@ const handleSave = (nuevoItem) => {
       {/* CONTENT */}
       <div style={{ padding: "28px 40px" }}>
         <MediaList
-          item={sortedItems}
+          item={itemsFiltrados}
           onToggleVisto={toggleVisto}
           onDelete={handleDelete}
           onEdit={handleEdit}
+          
         />
       </div>
     </div>
