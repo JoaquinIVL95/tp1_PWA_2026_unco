@@ -1,7 +1,8 @@
 import styles from "./MediaList.module.css";
 import MediaCard from "../MediaCard/MediaCard";
+import NoResults from "../NoResults/NoResults";
 
-function MediaList({ item, onToggleVisto, onDelete, onEdit }) {
+function MediaList({ item, onToggleVisto, onDelete, onEdit, hayFiltros }) {
   const noVistas = item.filter((p) => !p.visto);
   const vistas = item.filter((p) => p.visto);
   const contarGeneros = (array) => {
@@ -21,14 +22,14 @@ function MediaList({ item, onToggleVisto, onDelete, onEdit }) {
           <div className={styles.items}>
             {noVistas.length} {noVistas.length === 1 ? "item :" : "items :"}
             {Object.entries(generosNoVistas).map(([genero, cantidad]) => (
-              <div key={genero}>
-                {genero} ({cantidad})
-              </div>
+              <span key={genero}>
+                · {genero} ({cantidad})
+              </span>
             ))}
           </div>
         </div>
         {noVistas.length === 0 ? (
-          <div className={styles.emptyPorVer}>No tenes contenido por ver.</div>
+          hayFiltros ? <NoResults /> : <div className={styles.emptyPorVer}>No tenes contenido por ver.</div>
         ) : (
           noVistas.map((p) => (
             <MediaCard
@@ -55,14 +56,14 @@ function MediaList({ item, onToggleVisto, onDelete, onEdit }) {
           <div className={styles.items}>
             {vistas.length} {vistas.length === 1 ? "item :" : "items :"}
             {Object.entries(generosVistas).map(([genero, cantidad]) => (
-              <div key={genero}>
-                {genero} ({cantidad})
-              </div>
+              <span key={genero}>
+                · {genero} ({cantidad})
+              </span>
             ))}
           </div>
         </div>
         {vistas.length === 0 ? (
-          <div className={styles.emptyVistas}>No tenes contenido visto.</div>
+          hayFiltros ? <NoResults /> : <div className={styles.emptyVistas}>No tenes contenido visto.</div>
         ) : (
           vistas.map((p) => (
             <MediaCard

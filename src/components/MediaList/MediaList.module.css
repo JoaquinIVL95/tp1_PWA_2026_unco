@@ -16,22 +16,25 @@
   gap: 16px;
 }
 
-.datosPorVer{
+.datosPorVer {
   border-left: 6px solid orange;
+  padding-left: 12px;
 }
 
-.datosVista{
-    border-left: 6px solid greenyellow;
+.datosVista {
+  border-left: 6px solid greenyellow;
+  padding-left: 12px;
 }
 
-.items
-{
-    font-size:80%;
-    font-weight: bold;
-    color: var(--fg-muted);
-    display: flex;
-    flex-direction: row;
-
+.items {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-muted);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 8px;
 }
 
 .emptyPorVer, .emptyVistas{

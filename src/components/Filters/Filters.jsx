@@ -20,6 +20,8 @@ export default function Filters({
   tipo,
   setTipo,
   items,
+  hayFiltros,
+  onLimpiar,
 }) {
 const generosDisponibles = ["Todos", ...new Set(items.map(i => i.genero))]
 
@@ -72,6 +74,13 @@ const generosDisponibles = ["Todos", ...new Set(items.map(i => i.genero))]
           Serie
         </button>
       </div>
+
+      {/* LIMPIAR FILTROS */}
+      {hayFiltros && (
+        <button className={styles.clearBtn} onClick={onLimpiar}>
+          Limpiar filtros
+        </button>
+      )}
 
     </div>
   );

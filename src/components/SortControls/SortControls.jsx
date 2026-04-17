@@ -36,9 +36,11 @@ function SortControls({ onSort, onAdd }) {
         <option value="rating-desc">Rating ↓</option>
       </select>
 
+      <div className={styles.spacer} />
+
       <button className={styles.addButton} onClick={onAdd}>
         <span className={styles.plus}>+</span>
-        Agregar
+        Agregar película / serie
       </button>
     </div>
   );
