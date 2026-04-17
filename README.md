@@ -7,11 +7,11 @@ Facultad de Informática — Universidad Nacional del Comahue — 2026
 
 ## Integrantes
 
-| Nombre | Email | Rol |
-|--------|-------|-----|
-| Joaquín Vargas | joaquinivl95@gmail.com | PM / Scrum Master |
-| Gastón Llaupe | gaston.llaupe@est.fi.uncoma.edu.ar | Desarrollador |
-| Alejandro Santos Claure | alejandroclaure01@gmail.com | Desarrollador |
+| Nombre                  | Email                              | Rol               |
+| ----------------------- | ---------------------------------- | ----------------- |
+| Joaquín Vargas          | joaquinivl95@gmail.com             | PM / Scrum Master |
+| Gastón Llaupe           | gaston.llaupe@est.fi.uncoma.edu.ar | Desarrollador     |
+| Alejandro Santos Claure | alejandroclaure01@gmail.com        | Desarrollador     |
 
 ---
 
@@ -20,6 +20,7 @@ Facultad de Informática — Universidad Nacional del Comahue — 2026
 Aplicación web desarrollada en React que funciona como un gestor personal de películas y series. Permite al usuario llevar un registro de contenido pendiente de ver y contenido ya visto.
 
 **Funcionalidades principales:**
+
 - Agregar, editar y eliminar películas o series
 - Marcar contenido como visto para moverlo entre listas
 - Dos listas separadas: _Por Ver_ y _Vistos_
@@ -34,15 +35,19 @@ Aplicación web desarrollada en React que funciona como un gestor personal de pe
 ## Archivos iniciales del proyecto
 
 ### `main.jsx`
+
 Punto de entrada de la aplicación. Se encarga de montar el componente raíz `<App />` en el elemento `#root` del DOM definido en `index.html`. Es el primer archivo que ejecuta React al cargar la página.
 
 ### `App.jsx`
+
 Componente raíz de la aplicación. Define la estructura general y renderiza el componente `<Home />`. Es el punto desde donde se organiza el árbol de componentes.
 
 ### `index.css`
+
 Archivo de estilos globales. Los estilos definidos aquí aplican a toda la aplicación. Se importa directamente en `main.jsx`.
 
 ### `package.json`
+
 Archivo de configuración del proyecto. Contiene las dependencias, las versiones de las librerías instaladas, y los scripts disponibles (como `dev`, `build`, `preview`). Es el archivo que usa `npm` para saber qué instalar al correr `npm install`.
 
 ---
@@ -51,33 +56,34 @@ Archivo de configuración del proyecto. Contiene las dependencias, las versiones
 
 La aplicación está dividida en componentes independientes para evitar código duplicado y facilitar el mantenimiento:
 
-| Componente | Descripción |
-|------------|-------------|
-| `Titulo` | Encabezado `<h1>` reutilizable que recibe texto por props |
-| `MediaCard` | Tarjeta individual de una película o serie |
-| `MediaForm` | Formulario para agregar o editar un item |
-| `MediaList` | Lista de items con mensaje de estado vacío |
-| `SearchBar` | Input de búsqueda por título o director |
-| `Filters` | Selectores de filtro por género y tipo |
-| `SortControls` | Controles de ordenamiento por año y rating |
-| `Counter` | Contador de items por lista y por género |
+| Componente     | Descripción                                               |
+| -------------- | --------------------------------------------------------- |
+| `Titulo`       | Encabezado `<h1>` reutilizable que recibe texto por props |
+| `MediaCard`    | Tarjeta individual de una película o serie                |
+| `MediaForm`    | Formulario para agregar o editar un item                  |
+| `MediaList`    | Lista de items con mensaje de estado vacío                |
+| `SearchBar`    | Input de búsqueda por título o director                   |
+| `Filters`      | Selectores de filtro por género y tipo                    |
+| `SortControls` | Controles de ordenamiento por año y rating                |
+| `Counter`      | Contador de items por lista y por género                  |
 
 ---
 
 ## Stack tecnológico
 
-| Tecnología | Uso |
-|------------|-----|
+| Tecnología                 | Uso                                           |
+| -------------------------- | --------------------------------------------- |
 | [React](https://react.dev) | Librería principal para construir la interfaz |
 | [Vite](https://vitejs.dev) | Herramienta de build y servidor de desarrollo |
-| CSS Modules | Estilos encapsulados por componente |
-| localStorage | Persistencia de datos en el navegador |
+| CSS Modules                | Estilos encapsulados por componente           |
+| localStorage               | Persistencia de datos en el navegador         |
 
 ---
 
 ## Instalación y uso
 
 ### Requisitos
+
 - Node.js v18 o superior
 - npm
 
@@ -103,9 +109,15 @@ La aplicación estará disponible en `http://localhost:5173`
 
 ## Capturas de pantalla
 
-_Proximamente..._
+![Vista principal](public/Captura%20de%20pantalla%202026-04-17%20160444.png)
 
----
+![Lista de items](public/Captura%20de%20pantalla%202026-04-17%20160457.png)
+
+![Filtros](public/Captura%20de%20pantalla%202026-04-17%20160536.png)
+
+![Formulario](public/Captura%20de%20pantalla%202026-04-17%20160555.png)
+
+![Confirmar eliminación](public/Captura%20de%20pantalla%202026-04-17%20160611.png)
 
 ## Estrategia de Branches
 
@@ -120,10 +132,10 @@ main
 
 ### Ramas principales
 
-| Branch | Propósito |
-|--------|-----------|
-| `main` | Código estable y entregable. Solo se mergea desde `develop` cuando hay una versión lista. |
-| `develop` | Rama de integración. Todo el trabajo se integra acá antes de ir a `main`. |
+| Branch    | Propósito                                                                                 |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `main`    | Código estable y entregable. Solo se mergea desde `develop` cuando hay una versión lista. |
+| `develop` | Rama de integración. Todo el trabajo se integra acá antes de ir a `main`.                 |
 
 ### Ramas de trabajo
 
@@ -153,9 +165,11 @@ git branch
 ```
 
 > Si es la primera vez que subís la branch al repositorio remoto:
+>
 > ```bash
 > git push -u origin feature/COMP-1-titulo
 > ```
+>
 > Las veces siguientes alcanza con `git push`.
 
 ---
